@@ -5,6 +5,7 @@ use App\Http\Controllers\authController;
 use App\Http\Controllers\bidanController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\dokterControler;
+use App\Http\Controllers\DIbuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,10 @@ Route::middleware(['auth'])->group(function () {
     //hapus data dokter
     Route::get('/dokter/{$id}', [dokterControler::class, 'deleteD']);
 
+    //table ibu
+    Route::get('/ibu', [DIbuController::class, 'index']);
 
+
+    //menu utama atau dashboard
     Route::get('/dashboard', [dashboardController::class, 'index']);
 });

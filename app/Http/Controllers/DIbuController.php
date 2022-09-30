@@ -14,7 +14,7 @@ class DIbuController extends Controller
     public function index()
     {
         $data = $this->d_ibu->showData();
-        return view('mendaftar.ibu', compact('ibu'));
+        return view('mendaftar.ibu', compact('data'));
     }
     public function create()
     {
