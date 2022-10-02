@@ -30,31 +30,31 @@ Route::middleware(['auth'])->group(function () {
     //tambah data bidan
     Route::get('/bidan/tambah', [bidanController::class, 'create']);
     Route::post('/bidan/simpan', [bidanController::class, 'save']);
-
     //edit data bidan
     Route::get('/bidan/edit/{id}', [bidanController::class, 'updateData']);
     Route::post('/bidan/edit/{id}', [bidanController::class, 'editData']);
-
     //hapus data bidan
     Route::get('/bidan/{id}', [bidanController::class, 'delete']);
 
 
     //tampilkan data dokter
     Route::get('/dokter', [dokterControler::class, 'index']);
-
     //tambah data dokter
     Route::get('/dokter/tambah', [dokterControler::class, 'create']);
     Route::post('/dokter/simpan', [dokterControler::class, 'save']);
-
     //edit data dokter
     Route::get('/dokter/edit/{$id}', [dokterControler::class, 'updateData']);
     Route::post('/bidan/edit/{$id}', [dokterControler::class, 'editData']);
-
     //hapus data dokter
     Route::get('/dokter/{$id}', [dokterControler::class, 'deleteD']);
 
+
     //table ibu
     Route::get('/ibu', [DIbuController::class, 'index']);
+    //tambah daftar ibu
+    Route::get('/ibu/tambah', [DIbuController::class, 'create']);
+    Route::post('/ibu/simpan', [DIbuController::class, 'save']);
+
 
 
     //menu utama atau dashboard

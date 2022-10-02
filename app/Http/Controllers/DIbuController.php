@@ -13,8 +13,8 @@ class DIbuController extends Controller
     }
     public function index()
     {
-        $data = $this->d_ibu->showData();
-        return view('mendaftar.ibu', compact('data'));
+        $ibu = $this->d_ibu->showData();
+        return view('mendaftar.ibu', compact('ibu'));
     }
     public function create()
     {
@@ -52,14 +52,14 @@ class DIbuController extends Controller
             'tgl_df' => Request()->tgl_df
         ];
 
-        $this->danak->addData($data);
+        $this->d_ibu->addData($data);
 
         return redirect('/ibu')->with('pesan', 'Data berhasil di tambah');
     }
 
     public function updateData($id)
     {
-        $datad = $this->dokter->detailData($id);
+        $datad = $this->d_ibu->detailData($id);
         return view('mendaftar.u_ibu', compact(('ibu')));
     }
 
@@ -93,7 +93,7 @@ class DIbuController extends Controller
             'suami' => Request()->suami,
             'tgl_df' => Request()->tgl_df
         ];
-        $this->dokter->editData($id, $result);
+        $this->d_ibu->editData($id, $result);
 
         return redirect('/ibu')->with('pesan', 'Data berhasil di edit');
     }
@@ -101,7 +101,7 @@ class DIbuController extends Controller
 
     public function deleteD($id)
     {
-        $this->dokter->deleteData($id);
+        $this->d_ibu->deleteData($id);
         return redirect('/ibu')->with('pesan', 'Data berhasil di hapus');
     }
 }
