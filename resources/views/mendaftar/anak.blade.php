@@ -16,46 +16,39 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="/dokter/tambah"><button type="button" class="btn btn-info "><i class="fa fa-plus"
-                                    aria-hidden="true"></i> Tambah Dokter</button></a>
+                        <a href="/anak/tambah"><button type="button" class="btn btn-info "><i class="fa fa-plus"
+                                    aria-hidden="true"></i> Tambah Daftar</button></a>
                         <div class="table-responsive">
                             <table id="myTables" class="table m-t-30 no-wrap table-hover contact-list" data-page-size="10">
                                 <thead>
-                                    <tr>
+                                    <tr style="color:#046BD2">
                                         <th>No</th>
-                                        <th>Name</th>
-                                        @if (auth()->user()->role == 'admin')
-                                            <th>Tempat Lahir</th>
-                                            <th>Tanggal Lahir</th>
-                                            <th>Alamat</th>
-                                        @endif
-                                        <th>Telepon</th>
-                                        <th>Jam Aktif</th>
-                                        <th>Act</th>
+                                        <th>Nama</th>
+                                        <th>Tempat Lahir</th>
+                                        <th>Tanggal Lahir</th>
+                                        <th>Alamat</th>
+                                        <th>No Telepon</th>
+                                        <th>Nama Suami</th>
+                                        <th>Tanggal Daftar</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($dokter as $item)
+                                    @foreach ($ibu as $row)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->nama }}</td>
-                                            @if (auth()->user()->role == 'admin')
-                                                <td>{{ $item->tempat_lahir }}</td>
-                                                <td>{{ $item->tanggal_lahir }}</td>
-                                                <td>{{ $item->alamat }}</td>
-                                            @endif
-                                            <td>{{ $item->no_tlp }}</td>
-                                            <td>{{ \Carbon\Carbon::createFromFormat('H:i:s', $item->jam_aktif)->format('h:i') }}
-                                                -
-                                                {{ \Carbon\Carbon::createFromFormat('H:i:s', $item->jam_akhir)->format('h:i') }}
-                                            </td>
+                                            <td>{{ $row->nama }}</td>
+                                            <td>{{ $row->tempat_lahir }}</td>
+                                            <td>{{ $row->tanggal_lahir }}</td>
+                                            <td>{{ $row->alamat }}</td>
+                                            <td>{{ $row->no_tlp }}</td>
+                                            <td>{{ $row->suami }}</td>
+                                            <td>{{ $row->tgl_df }}</td>
                                             <td>
-                                                <a href="/bidan/edit/{{ $item->id }}" data-toggle="tooltip"
-                                                    data-original-title="edit"><button
+                                                <a href="/ibu/edit/{{ $row->id }}"><button
                                                         class="btn btn-sm btn-icon btn-pure btn-outline edit-row-btn"><i
                                                             class="fa fa-edit" aria-hidden="true"></i></button></a>
-                                                <a href="/bidan/{{ $item->id }}" data-toggle="tooltip"
-                                                    data-original-title="Delete"><button
+                                                <a href="/ibu/{{ $row->id }}"><button
                                                         class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"><i
                                                             class="fa fa-trash"
                                                             onclick="return confirm('Apa anda yakin ingin menghapus??')"
@@ -70,4 +63,5 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

@@ -30,19 +30,32 @@
                                         <th>No Telepon</th>
                                         <th>Nama Suami</th>
                                         <th>Tanggal Daftar</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>kyyy</td>
-                                        <td>bon</td>
-                                        <td>pes</td>
-                                        <td>adksaok</td>
-                                        <td>89089</td>
-                                        <td>koh</td>
-                                        <td>1290290</td>
-                                    </tr>
+                                    @foreach ($ibu as $row)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $row->nama }}</td>
+                                            <td>{{ $row->tempat_lahir }}</td>
+                                            <td>{{ $row->tanggal_lahir }}</td>
+                                            <td>{{ $row->alamat }}</td>
+                                            <td>{{ $row->no_tlp }}</td>
+                                            <td>{{ $row->suami }}</td>
+                                            <td>{{ $row->tgl_df }}</td>
+                                            <td>
+                                                <a href="/ibu/edit/{{ $row->id }}"><button
+                                                        class="btn btn-sm btn-icon btn-pure btn-outline edit-row-btn"><i
+                                                            class="fa fa-edit" aria-hidden="true"></i></button></a>
+                                                <a href="/ibu/{{ $row->id }}"><button
+                                                        class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"><i
+                                                            class="fa fa-trash"
+                                                            onclick="return confirm('Apa anda yakin ingin menghapus??')"
+                                                            aria-hidden="true"></i></button></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

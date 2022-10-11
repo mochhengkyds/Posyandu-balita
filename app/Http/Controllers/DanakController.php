@@ -13,7 +13,7 @@ class DanakController extends Controller
     }
     public function index()
     {
-        $dokter = $this->dokter->showData();
+        $anak = $this->danak->showData();
         return view('mendaftar.anak', compact('danak'));
     }
 
@@ -54,15 +54,15 @@ class DanakController extends Controller
             'jam_akhir' => Request()->jam_akhir
         ];
 
-        $this->dokter->addData($data);
+        $this->danak->addData($data);
 
-        return redirect('/dokter')->with('pesan', 'Data berhasil di tambah');
+        return redirect('/anak')->with('pesan', 'Data berhasil di tambah');
     }
 
     public function updateData($id)
     {
-        $datad = $this->dokter->detailData($id);
-        return view('dokter.dedit', compact(('datad')));
+        $data = $this->danak->detailData($id);
+        return view('mendaftar.anak', compact(('data')));
     }
 
     public function editData($id)
@@ -95,15 +95,15 @@ class DanakController extends Controller
             'jam_aktif' => Request()->jam_aktif,
             'jam_akhir' => Request()->jam_akhir
         ];
-        $this->dokter->editData($id, $result);
+        $this->danak->editData($id, $result);
 
-        return redirect('/dokter')->with('pesan', 'Data berhasil di edit');
+        return redirect('/anak')->with('pesan', 'Data berhasil di edit');
     }
 
 
     public function deleteD($id)
     {
-        $this->dokter->deleteData($id);
-        return redirect('/dokter')->with('pesan', 'Data berhasil di hapus');
+        $this->danak->deleteData($id);
+        return redirect('/anak')->with('pesan', 'Data berhasil di hapus');
     }
 }

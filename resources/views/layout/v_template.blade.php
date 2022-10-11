@@ -205,7 +205,7 @@
                     "bInfo": false,
                     "bAutoWidth": false,
                     "oLanguage": {
-                        "sEmptyTable": "Data dokter kosong"
+                        "sEmptyTable": "Data kosong"
                     }
                 });
             });

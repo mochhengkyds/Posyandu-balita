@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\bidanController;
+use App\Http\Controllers\DanakController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\dokterControler;
 use App\Http\Controllers\DIbuController;
@@ -25,7 +26,7 @@ Route::get('/logout', [authController::class, 'logout']);
 Route::middleware(['auth'])->group(function () {
 
 
-    //tampilkan data bidan
+    //table data bidan
     Route::get('/bidan', [bidanController::class, 'index']);
     //tambah data bidan
     Route::get('/bidan/tambah', [bidanController::class, 'create']);
@@ -37,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/bidan/{id}', [bidanController::class, 'delete']);
 
 
-    //tampilkan data dokter
+    //table data dokter
     Route::get('/dokter', [dokterControler::class, 'index']);
     //tambah data dokter
     Route::get('/dokter/tambah', [dokterControler::class, 'create']);
@@ -49,11 +50,27 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dokter/{$id}', [dokterControler::class, 'deleteD']);
 
 
-    //table ibu
+    //table daftar ibu
     Route::get('/ibu', [DIbuController::class, 'index']);
     //tambah daftar ibu
     Route::get('/ibu/tambah', [DIbuController::class, 'create']);
     Route::post('/ibu/simpan', [DIbuController::class, 'save']);
+    //edit daftar ibu
+    Route::get('/ibu/edit{$id}', [DIbuController::class, 'updateData']);
+    Route::post('/ibu/edit/{$id}', [DIbuController::class, 'editData']);
+    //hapus daftar ibu
+    Route::get('/ibu/{$id}', [DIbuController::class, 'deleteD']);
+
+    //table daftar anak
+    Route::get('/anak', [DanakController::class, 'index']);
+    //tambah daftar anak
+    Route::get('/anak/tambah', [DanakController::class, 'create']);
+    Route::post('/anak/simpan', [DanakController::class, 'save']);
+    //edit daftar anak
+    Route::get('/ibu/edit/{$id}', [DanakController::class, 'updateData']);
+    Route::post('/anak/edit/{$id}', [DanakController::class, 'editData']);
+    //hapus daftar anak
+    Route::get('/anak/{$id}', [DanakController::class, 'deleteD']);
 
 
 

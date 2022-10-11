@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card shadow-sm" style="border:0;border-radius:10px">
-                    <form action="/dokter/simpan" method="POST" class="form-horizontal">
+                    <form action="/ibu/simpan" method="POST" class="form-horizontal">
                         @csrf
                         <div class="card-body">
                             <div class="form-group row">
@@ -67,19 +67,19 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="lname" class="col-sm-3 text-right ">jam aktif</label>
+                                <label for="lname" class="col-sm-3 text-right ">suami</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="lname" name="suami"
-                                        value="{{ old('suami') }}" placeholder=" isi jam aktif">
+                                        value="{{ old('suami') }}" placeholder=" isi nama suami">
                                     @error('suami')
                                         <small class="form-text text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="email1" class="col-sm-3 text-right ">jam akhir</label>
+                                <label for="email1" class="col-sm-3 text-right ">tanggal daftar</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="email1" name="tgl_df"
+                                    <input type="date" class="form-control" id="email1" name="tgl_df"
                                         value="{{ old('tgl_df') }}" placeholder=" isi jam akhir">
                                     @error('tgl_df')
                                         <small class="form-text text-danger">{{ $message }}</small>
