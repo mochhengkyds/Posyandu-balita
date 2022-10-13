@@ -14,7 +14,7 @@ class DanakController extends Controller
     public function index()
     {
         $anak = $this->danak->showData();
-        return view('mendaftar.anak', compact('danak'));
+        return view('mendaftar.anak', compact('anak'));
     }
 
     public function create()
@@ -26,32 +26,26 @@ class DanakController extends Controller
     {
         Request()->validate([
             'nama' => 'required',
+            'umur' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
-            'alamat' => 'required',
-            'no_tlp' => 'required',
-            'jam_aktif' => 'required',
-            'jam_akhir' => 'required'
+            'tgl_df' => 'required'
         ], [
             'nama.required' => 'nama harus di isi',
+            'umur.required' => 'umur harus di isi',
             'tempat_lahir.required' => 'tempat lahir harus di isi',
             'tanggal_lahir.required' => 'tanggal lahir harus di isi',
-            'alamat.required' => 'alamat harus di isi',
-            'no_tlp.required' => 'nomer telepon harus di isi',
-            'jam_aktif.required' => 'jam harus di isi',
-            'jam_akhir.required' => 'jam harus di isi'
+            'tgl_df.required' => 'tanggal daftar harus di isi'
 
         ]);
 
 
         $data = [
             'nama' => Request()->nama,
+            'umur' => Request()->umur,
             'tempat_lahir' => Request()->tempat_lahir,
             'tanggal_lahir' => Request()->tanggal_lahir,
-            'alamat' => Request()->alamat,
-            'no_tlp' => Request()->no_tlp,
-            'jam_aktif' => Request()->jam_aktif,
-            'jam_akhir' => Request()->jam_akhir
+            'tgl_df' => Request()->tgl_df
         ];
 
         $this->danak->addData($data);
@@ -62,38 +56,32 @@ class DanakController extends Controller
     public function updateData($id)
     {
         $data = $this->danak->detailData($id);
-        return view('mendaftar.anak', compact(('data')));
+        return view('mendaftar.anak', compact(('anak')));
     }
 
     public function editData($id)
     {
-        request()->validate([
+        Request()->validate([
             'nama' => 'required',
+            'umur' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
-            'alamat' => 'required',
-            'no_tlp' => 'required',
-            'jam_aktif' => 'required',
-            'jam_akhir' => 'required'
+            'tgl_df' => 'required'
         ], [
             'nama.required' => 'nama harus di isi',
+            'umur.required' => 'umur harus di isi',
             'tempat_lahir.required' => 'tempat lahir harus di isi',
             'tanggal_lahir.required' => 'tanggal lahir harus di isi',
-            'alamat.required' => 'alamat harus di isi',
-            'no_tlp.required' => 'nomer telepon harus di isi',
-            'jam_aktif.required' => 'jam harus di isi',
-            'jam_akhir.required' => 'jam harus di isi'
+            'tgl_df.required' => 'tanggal daftar harus di isi'
 
         ]);
 
         $result = [
             'nama' => Request()->nama,
+            'umur' => Request()->umur,
             'tempat_lahir' => Request()->tempat_lahir,
-            'tanggal_lahir' => Request()->Tanggal_lahir,
-            'alamat' => Request()->alamat,
-            'no_tlp' => Request()->no_tlp,
-            'jam_aktif' => Request()->jam_aktif,
-            'jam_akhir' => Request()->jam_akhir
+            'tanggal_lahir' => Request()->tanggal_lahir,
+            'tgl_df' => Request()->tgl_df
         ];
         $this->danak->editData($id, $result);
 

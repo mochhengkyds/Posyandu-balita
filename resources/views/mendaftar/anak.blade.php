@@ -4,7 +4,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Data Anak</h4>
+                <h4 class="page-title">Data Daftar Anak</h4>
                 <div class="d-flex align-items-center">
 
                 </div>
@@ -24,31 +24,27 @@
                                     <tr style="color:#046BD2">
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>umur</th>
                                         <th>Tempat Lahir</th>
                                         <th>Tanggal Lahir</th>
-                                        <th>Alamat</th>
-                                        <th>No Telepon</th>
-                                        <th>Nama Suami</th>
-                                        <th>Tanggal Daftar</th>
+                                        <th>Tanggal daftar</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($ibu as $row)
+                                    @foreach ($anak as $row)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $row->nama }}</td>
+                                            <td>{{ $row->umur }}</td>
                                             <td>{{ $row->tempat_lahir }}</td>
                                             <td>{{ $row->tanggal_lahir }}</td>
-                                            <td>{{ $row->alamat }}</td>
-                                            <td>{{ $row->no_tlp }}</td>
-                                            <td>{{ $row->suami }}</td>
                                             <td>{{ $row->tgl_df }}</td>
                                             <td>
-                                                <a href="/ibu/edit/{{ $row->id }}"><button
+                                                <a href="/anak/edit/{{ $row->id }}"><button
                                                         class="btn btn-sm btn-icon btn-pure btn-outline edit-row-btn"><i
                                                             class="fa fa-edit" aria-hidden="true"></i></button></a>
-                                                <a href="/ibu/{{ $row->id }}"><button
+                                                <a href="/anak/{{ $row->id }}"><button
                                                         class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"><i
                                                             class="fa fa-trash"
                                                             onclick="return confirm('Apa anda yakin ingin menghapus??')"

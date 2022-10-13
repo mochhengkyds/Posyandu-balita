@@ -47,12 +47,10 @@
                                             <td>{{ $row->username }}</td>
                                             <td><span class="label label-success">{{ $row->role }}</span> </td>
                                             <td>
-                                                <a href="/bidan/edit/{{ $row->id }}" data-toggle="tooltip"
-                                                    data-original-title="edit"><button
+                                                <a href="/bidan/edit/{{ $row->id }}"><button
                                                         class="btn btn-sm btn-icon btn-pure btn-outline edit-row-btn"><i
                                                             class="fa fa-edit" aria-hidden="true"></i></button></a>
-                                                <a href="/bidan/{{ $row->id }}" data-toggle="tooltip"
-                                                    data-original-title="Delete"><button
+                                                <a href="/bidan/{{ $row->id }}"><button
                                                         class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"><i
                                                             class="fa fa-trash"
                                                             onclick="return confirm('Apa anda yakin ingin menghapus??')"

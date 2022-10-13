@@ -56,7 +56,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/ibu/tambah', [DIbuController::class, 'create']);
     Route::post('/ibu/simpan', [DIbuController::class, 'save']);
     //edit daftar ibu
-    Route::get('/ibu/edit{$id}', [DIbuController::class, 'updateData']);
+    Route::get('/ibu/edit/{$id}', [DIbuController::class, 'updateData']);
     Route::post('/ibu/edit/{$id}', [DIbuController::class, 'editData']);
     //hapus daftar ibu
     Route::get('/ibu/{$id}', [DIbuController::class, 'deleteD']);
@@ -67,10 +67,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/anak/tambah', [DanakController::class, 'create']);
     Route::post('/anak/simpan', [DanakController::class, 'save']);
     //edit daftar anak
-    Route::get('/ibu/edit/{$id}', [DanakController::class, 'updateData']);
+    Route::get('/anak/edit{$id}', [DanakController::class, 'updateData']);
     Route::post('/anak/edit/{$id}', [DanakController::class, 'editData']);
     //hapus daftar anak
     Route::get('/anak/{$id}', [DanakController::class, 'deleteD']);
+
+    //table data priksa ibu
 
 
 

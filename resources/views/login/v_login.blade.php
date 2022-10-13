@@ -38,7 +38,8 @@
                             <form class="form-horizontal m-t-20" id="loginform" action="/" method="POST">
                                 @csrf
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend" style="border:none; border-bottom:1px solid #000">
+                                    <div class="input-group-prepend d-block w-100"
+                                        style="border:none; border-bottom:1px solid #000">
                                         <span class="input-group-text" style="background: transparent; border:none"
                                             id="basic-addon1"></span>
                                         <input type="text" name="username" class="form-control form-control-lg"
@@ -50,7 +51,8 @@
                                     @enderror
                                 </div>
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend" style="border:none; border-bottom:1px solid #000">
+                                    <div class="input-group-prepend d-block w-100"
+                                        style="border:none; border-bottom:1px solid #000">
                                         <span class="input-group-text" id="basic-addon2"
                                             style="background: transparent; border:none"></span>
                                         <input type="password" name="password" class="form-control form-control-lg"
@@ -63,7 +65,7 @@
                                 </div>
                                 <div class="form-group text-center">
                                     <div class="col-xs-12 p-b-20">
-                                        <button class="w-100 btn btn-block btn-lg btn-primary" type="submit">LOGIN</button>
+                                        <button class=" btn btn-primary" type="submit">LOGIN</button>
                                     </div>
                                 </div>
                             </form>
