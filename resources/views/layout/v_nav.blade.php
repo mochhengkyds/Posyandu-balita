@@ -55,13 +55,13 @@
                 </a>
                 <ul aria-expanded="false" class="collapse  first-level">
                     <li class="sidebar-item">
-                        <a href="/panak" class="sidebar-link">
+                        <a href="/anak/periksa" class="sidebar-link">
                             <i class="mdi mdi-book-multiple"></i>
                             <span class="hide-menu"> anak </span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="/pibu" class="sidebar-link">
+                        <a href="/ibu/periksa" class="sidebar-link">
                             <i class="mdi mdi-book-plus"></i>
                             <span class="hide-menu"> ibu </span>
                         </a>

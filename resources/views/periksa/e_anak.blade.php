@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card shadow-sm" style="border:0;border-radius:10px">
-                    <form action="/anak/periksa/simpan" method="POST" class="form-horizontal">
+                    <form action="/anak/periksa/edit/{{ $data->id }}" method="POST" class="form-horizontal">
                         @csrf
                         <div class="card-body">
                             <div class="form-group row">

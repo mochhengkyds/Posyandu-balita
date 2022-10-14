@@ -7,6 +7,7 @@ use App\Http\Controllers\DanakController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\dokterControler;
 use App\Http\Controllers\DIbuController;
+use App\Http\Controllers\PanakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,7 @@ Route::middleware(['auth'])->group(function () {
     //hapus daftar ibu
     Route::get('/ibu/{$id}', [DIbuController::class, 'deleteD']);
 
+
     //table daftar anak
     Route::get('/anak', [DanakController::class, 'index']);
     //tambah daftar anak
@@ -72,7 +74,30 @@ Route::middleware(['auth'])->group(function () {
     //hapus daftar anak
     Route::get('/anak/{$id}', [DanakController::class, 'deleteD']);
 
+
+    //table data priksa anak
+    Route::get('/anak/periksa', [PanakController::class, 'index']);
+    //tambah periksa anak
+    Route::get('/anak/periksa/tambah', [PanakController::class, 'create']);
+    Route::post('/anak/periksa/simpan', [PanakController::class, 'save']);
+    //edit periksa anak
+    Route::get('/anak/periksa/edit{$id}', [PanakController::class, 'updateData']);
+    Route::post('/anak/periksa/edit/{$id}', [PanakController::class, 'editData']);
+    //hapus periksa anak
+    Route::get('/anak/periksa/{$id}', [PanakController::class, 'deleteD']);
+
+
     //table data priksa ibu
+    Route::get('/ibu/periksa', [PanakController::class, 'index']);
+    //tambah periksa ibu
+    Route::get('/ibu/periksa/tambah', [PanakController::class, 'create']);
+    Route::post('/ibu/periksa/simpan', [PanakController::class, 'save']);
+    //edit periksaa ibu
+    Route::get('/ibu/periksa/edit{$id}', [PanakController::class, 'updateData']);
+    Route::post('/ibu/periksa/edit/{$id}', [PanakController::class, 'editData']);
+    //hapus periksa ibu
+    Route::get('/ibu/periksa/{$id}', [PanakController::class, 'deleteD']);
+
 
 
 
