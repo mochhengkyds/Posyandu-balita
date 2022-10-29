@@ -10,7 +10,10 @@ class Panak extends Model
 {
     public function showData()
     {
-        return DB::table('anak_priksa')->get();
+        return DB::table('anak_priksa')
+        ->join('anak','anak.id', '=','anak.nama')
+        ->join('dokter','dokter.id','=','dokter.nama')
+        ->select('anak.nama','dokter.nama')->get();
     }
     public function addData($data)
     {

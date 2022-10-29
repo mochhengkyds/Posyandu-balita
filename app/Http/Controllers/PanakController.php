@@ -4,30 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Panak;
-use App\Models\danak;
-use App\Models\dokter;
 
 class PanakController extends Controller
 {
     public function __construct()
     {
         $this->Panak = new Panak;
-        $this->anak = new danak;
-        $this->dokter = new dokter;
     }
     public function index()
     {
         $p_anak = $this->Panak->showData();
-        $danak = $this->anak->showData();
-        $dokter = $this->dokter->showData();
-        return view('periksa.p_anak', compact('p_anak','danak','dokter'));
+        return view('periksa.p_anak', compact('p_anak'));
     }
 
     public function create()
     {
-        $danak = $this->anak->showData();
-        $dokter = $this->dokter->showData();
-        return view('periksa.c_anak', compact('danak', 'dokter'));
+        $p_anak = $this->Panak->showData();
+        return view('periksa.c_anak', compact('p_anak'));
     }
 
     public function save()

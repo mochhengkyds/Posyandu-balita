@@ -4,7 +4,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Daftar ibu</h4>
+                <h4 class="page-title">Daftar anak</h4>
                 <div class="d-flex align-items-center">
 
                 </div>
@@ -26,7 +26,7 @@
                                         <th>Nama anak</th>
                                         <th>tanggal</th>
                                         <th>hasil pemeriksaan</th>
-                                        <th>nama dokter</th>
+                                        <th>dokter</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -34,10 +34,10 @@
                                     @foreach ($p_anak as $row)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $row->id_anak }}</td>
+                                            <td>{{ $row->nama }}</td>
                                             <td>{{ $row->tanggal }}</td>
                                             <td>{{ $row->priksa }}</td>
-                                            <td>{{ $row->id_dokter }}</td>
+                                            <td>{{ $row->nama }}</td>
                                             <td>
                                                 <a href="/anak/periksa/edit/{{ $row->id }}"><button
                                                         class="btn btn-sm btn-icon btn-pure btn-outline edit-row-btn"><i

@@ -10,7 +10,10 @@ class Pibu extends Model
 {
     public function showData()
     {
-        return DB::table('ibu_priksa')->get();
+        return DB::table('ibu_priksa')
+        ->join('ibu','ibu.id','=','ibu.nama')
+        ->join('dokter','dokter.id','=','dokter.nama')
+        ->select('ibu.nama', 'dokter.nama')->get();
     }
     public function addData($data)
     {

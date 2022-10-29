@@ -20,7 +20,7 @@
                                 <label for="fname" class="col-sm-3 text-right ">Nama anak</label>
                                 <div class="col-sm-9">
                                     <select name="id_anak" class="form-control">
-                                        @foreach ($danak as $kirim)
+                                        @foreach ($p_anak as $kirim)
                                             <option value="{{ $kirim->id }}">{{ $kirim->nama }}</option>
                                         @endforeach
                                     </select>
