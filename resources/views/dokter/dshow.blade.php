@@ -59,11 +59,11 @@
                                                 {{ \Carbon\Carbon::createFromFormat('H:i:s', $item->jam_akhir)->format('h:i') }}
                                             </td>
                                             <td>
-                                                <a href="/bidan/edit/{{ $item->id }}" data-toggle="tooltip"
+                                                <a href="/dokter/edit/{{ $item->id }}" data-toggle="tooltip"
                                                     data-original-title="edit"><button
                                                         class="btn btn-sm btn-icon btn-pure btn-outline edit-row-btn"><i
                                                             class="fa fa-edit" aria-hidden="true"></i></button></a>
-                                                <a href="/bidan/{{ $item->id }}" data-toggle="tooltip"
+                                                <a href="/dokter/{{ $item->id }}" data-toggle="tooltip"
                                                     data-original-title="Delete"><button
                                                         class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"><i
                                                             class="fa fa-trash"
