@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('template') }}/assets/images/title.png">
-    <title>Posyandu | </title>
+    <title>Posyandu | @yield('title')</title>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link href="{{ asset('template') }}/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
@@ -113,7 +113,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"
                                 href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="{{ asset('template') }}/assets/images/users/icon-admin.jpeg" alt="user"
+                                <img src="{{ asset('template') }}/assets/images/users/admin.jpg" alt="user"
                                     class="rounded-circle" width="31">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
@@ -122,7 +122,7 @@
                                 </span>
                                 <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
                                     <div class="">
-                                        <img src="{{ asset('template') }}/assets/images/users/icon-admin.jpeg"
+                                        <img src="{{ asset('template') }}/assets/images/users/admin.jpg"
                                             alt="user" class="img-circle" width="60">
                                     </div>
                                     <div class="m-l-10">

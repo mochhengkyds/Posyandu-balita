@@ -1,5 +1,5 @@
 @extends('login.v_templatelog')
-
+@section('title', 'login')
 
 
 @section('content')

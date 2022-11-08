@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-
+@section('title', 'bidan')
 @section('content')
     <div class="container-fluid">
         <div class="row">

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('template') }}/assets/images/title.png">
-    <title>Posyandu |</title>
+    <title>Posyandu | @yield('title')</title>
     <!-- Custom CSS -->
     <link href="{{ asset('template') }}/dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
