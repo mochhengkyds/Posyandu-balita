@@ -23,7 +23,7 @@
                     style="background-image:linear-gradient(to right top, #7DBEFF  , #0068D1 ); color:#FFFFFF;border-radius:10px">
                     <h5>Jumlah Pasien Terdaftar</h5>
                     <div class="d-flex align-items-center" style="gap: 20px">
-                        <h1 class="ml-auto">10</h1>
+                        <h1 class="ml-auto">{{ $jumblah_pasien }}</h1>
                         <h5>Orang</h5>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                     style="background-image:linear-gradient(to right top, #7DBEFF  , #0068D1 ); color:#FFFFFF;border-radius:10px ">
                     <h5>Jumlah bidan</h5>
                     <div class="d-flex align-items-center" style="gap: 20px">
-                        <h1 class="ml-auto">{{$jumblah_bidan}}</h1>
+                        <h1 class="ml-auto">{{ $jumblah_bidan }}</h1>
                         <h5>Orang</h5>
                     </div>
                 </div>
@@ -62,7 +62,6 @@
 
 
     <script>
-
         const ctl = document.getElementById('daftarChart');
         const daftarChart = new Chart(ctl, {
             type: 'bar',
@@ -71,42 +70,52 @@
                     'Oktober', 'November', 'Desember'
                 ],
                 datasets: [{
-                        label: ['data anak'],
-                        data: [
-                            1,2,3,4,5,6,7,8,9,10,11,12
-                        ],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 99, 132, 1)',
+                    label: ['Data Pasien'],
+                    data: [
+                        {{ $jml_pasien_jan }},
+                        {{ $jml_pasien_feb }},
+                        {{ $jml_pasien_mar }},
+                        {{ $jml_pasien_apr }},
+                        {{ $jml_pasien_mei }},
+                        {{ $jml_pasien_jun }},
+                        {{ $jml_pasien_jul }},
+                        {{ $jml_pasien_agu }},
+                        {{ $jml_pasien_sep }},
+                        {{ $jml_pasien_okt }},
+                        {{ $jml_pasien_nov }},
+                        {{ $jml_pasien_des }}
+                    ],
+                    backgroundColor: [
+                        'rgba(99, 198, 243, 0.2)',
+                        'rgba(99, 198, 243, 0.2)',
+                        'rgba(99, 198, 243, 0.2)',
+                        'rgba(99, 198, 243, 0.2)',
+                        'rgba(99, 198, 243, 0.2)',
+                        'rgba(99, 198, 243, 0.2)',
+                        'rgba(99, 198, 243, 0.2)',
+                        'rgba(99, 198, 243, 0.2)',
+                        'rgba(99, 198, 243, 0.2)',
+                        'rgba(99, 198, 243, 0.2)',
+                        'rgba(99, 198, 243, 0.2)',
+                        'rgba(99, 198, 243, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(99, 198, 243, 1)',
+                        'rgba(99, 198, 243, 1)',
+                        'rgba(99, 198, 243, 1)',
+                        'rgba(99, 198, 243, 1)',
+                        'rgba(99, 198, 243, 1)',
+                        'rgba(99, 198, 243, 1)',
+                        'rgba(99, 198, 243, 1)',
+                        'rgba(99, 198, 243, 1)',
+                        'rgba(99, 198, 243, 1)',
+                        'rgba(99, 198, 243, 1)',
+                        'rgba(99, 198, 243, 1)',
+                        'rgba(99, 198, 243, 1)',
 
-                        ],
-                        borderWidth: 2
-                    },
-                ]
+                    ],
+                    borderWidth: 2
+                }, ]
             },
             options: {
                 scales: {

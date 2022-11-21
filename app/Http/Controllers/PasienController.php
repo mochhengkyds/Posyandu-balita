@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\Pasien;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PasienController extends Controller
 {
+    public function __construct()
+    {
+        $this->Pasien = new Pasien;
+    }
 
     public function index()
     {
-        $pasien = $this->pasien->showData();
-        return view('pasien.v_pasien', compact('pasien'));
+        $data = $this->Pasien->showData();
+        return view('pasien.v_pasien', compact('data'));
     }
 
 
@@ -28,7 +34,7 @@ class PasienController extends Controller
             'nama_anak' => 'required',
             'umur' => 'required',
             'berat_badan' => 'required',
-            'alamat' => 'required',
+            'alamat' => 'required|max:100',
             'tanggal_lahir' => 'required',
             'tanggal_daftar' => 'required'
         ]);
@@ -38,29 +44,32 @@ class PasienController extends Controller
             'nama_anak' => Request()->nama_anak,
             'umur' => Request()->umur,
             'berat_badan' => Request()->berat_badan,
+            'alamat' => Request()->alamat,
             'tanggal_lahir' => Request()->tanggal_lahir,
             'tanggal_daftar' => Request()->tanggal_daftar
         ];
-        $this->pasien->addData($data);
-        return redirect('/pasien')->with('pesan','Data berhasil di tambah');
+        $this->Pasien->addData($data);
+        return redirect('/pasien')->with('pesan', 'Data berhasil di tambah');
     }
 
 
-    public function show(Pasien $pasien)
+    public function show($id)
     {
-        $data = $this->pasien->detailData($pasien);
+
+        $data = $this->Pasien->detailData($id);
         return view('pasien.detail_pasien', compact('data'));
     }
 
 
-    public function edit(Pasien $pasien)
+    public function edit($id)
     {
-        $data = $this->pasien->detailData($pasien);
+
+        $data = $this->Pasien->detailData($id);
         return view('pasien.update_pasien', compact('data'));
     }
 
 
-    public function update(Pasien $pasien)
+    public function update($id)
     {
         Request()->validate([
             'nama_ibu' => 'required',
@@ -80,14 +89,33 @@ class PasienController extends Controller
             'tanggal_lahir' => Request()->tanggal_lahir,
             'tanggal_daftar' => Request()->tanggal_daftar
         ];
-        $this->pasien->editData($pasien, $data);
-        return redirect('/pasien')->with('pesan','Data berhasil di tambah');
+        $this->Pasien->editData($id, $data);
+        return redirect('/pasien')->with('pesan', 'Data berhasil di tambah');
     }
 
 
-    public function destroy(Pasien $pasien)
+    public function destroy($id)
     {
-        $this->pasien->deleteData($pasien);
-        return redirect('/pasien')->with('pesan','data sudah di hapus');
+        $this->Pasien->deleteData($id);
+        return redirect('/pasien')->with('pesan', 'data sudah di hapus');
+    }
+
+    public function printpdf()
+    {
+        $pasien = pasien::all();
+        // return view('pasien.print', compact(('pasien')));
+        // dd($pasien);
+        $pdf = PDF::loadView('pasien.print', compact(('pasien')));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->download(Rand(1, 100) . 'Data Seleuruh Pasien.pdf');
+    }
+    public function printpdfid($id)
+    {
+        $pasienbio = DB::table('pasien')->where('pasien.id', $id)->join('pemeriksaan', 'pemeriksaan.id', 'pasien.id')->first();
+        // $pasienbio = pasien::where('pasien.id', $id)->join('pemeriksaan', 'pemeriksaan.id', 'pasien.id')->get();
+        // dd($pasienbio);
+        $pdf = PDF::loadview('pasien.print_biodata', compact(('pasienbio')));
+        $pdf->setPaper('a4', 'portait');
+        return $pdf->download(Rand(1, 100) . 'Data Pasien.pdf');
     }
 }

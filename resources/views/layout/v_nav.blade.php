@@ -38,7 +38,7 @@
                     </li>
                     <li class="sidebar-item">
                         <a href="/pemeriksaan" class="sidebar-link">
-                            <span class="hide-menu"> Hasil Pemeriksaan </span>
+                            <span class="hide-menu"> Data periksa </span>
                         </a>
                     </li>
                 </ul>

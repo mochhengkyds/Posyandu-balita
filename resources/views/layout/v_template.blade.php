@@ -12,6 +12,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('template') }}/assets/images/title.png">
     <title>Posyandu | @yield('title')</title>
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link href="{{ asset('template') }}/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="{{ asset('template') }}/assets/extra-libs/css-chart/css-chart.css" rel="stylesheet">
@@ -103,13 +106,11 @@
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-right">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle font-weight-bold" aria-expanded="false" disabled>
+                                {{ auth()->user()->nama }}
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"
                                 href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -122,13 +123,15 @@
                                 </span>
                                 <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
                                     <div class="">
-                                        <img src="{{ asset('template') }}/assets/images/users/admin.jpg"
-                                            alt="user" class="img-circle" width="60">
+                                        <img src="{{ asset('template') }}/assets/images/users/admin.jpg" alt="user"
+                                            class="img-circle" width="60">
                                     </div>
                                     <div class="m-l-10">
                                         <h4 class="m-b-0">{{ auth()->user()->nama }}</h4>
                                     </div>
                                 </div>
+                                <a class="dropdown-item" href="javascript:void(0)">
+                                    Status : {{ auth()->user()->role }}</a>
                                 <a class="dropdown-item" href="/logout">
                                     <i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                 <div class="dropdown-divider"></div>

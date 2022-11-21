@@ -18,8 +18,10 @@ class authController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
+        
         $username = $request->username;
         $password = $request->password;
+
         if (Auth::attempt(['username' => $username, 'password' => $password, 'role' => 'admin'])) {
             return redirect('/dashboard');
         } elseif (Auth::attempt(['username' => $username, 'password' => $password, 'role' => 'bidan'])) {

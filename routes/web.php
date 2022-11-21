@@ -4,18 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\bidanController;
 use App\Http\Controllers\dashboardController;
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\PasienController;
+use App\Http\Controllers\PeriksaController;
 
 // admin
 Route::get('/', [authController::class, 'loginUI'])->name('login')->middleware('guest');
@@ -35,7 +25,13 @@ Route::middleware(['auth'])->group(function () {
     //hapus data bidan
     Route::get('/bidan/{id}', [bidanController::class, 'delete']);
 
+    //download pdf
+    Route::get('/downloadpdf', [PasienController::class, 'printpdf']);
+    Route::get('/printpdfperid/{id}', [PasienController::class, 'printpdfid']);
 
+    //data pasien
+    Route::resource('/pasien', PasienController::class);
+    Route::resource('/pemeriksaan', PeriksaController::class);
 
     //menu utama atau dashboard
     Route::get('/dashboard', [dashboardController::class, 'index']);

@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class Pasien extends Model
 {
+
+
+    protected $table = 'pasien';
+    protected $filltable = ['id', 'nama_ibu', 'nama_anak', 'umur', 'berat_badan', 'alamat', 'tanggal_lahir', 'tanggal_daftar'];
+
     public function showData()
     {
         return DB::table('pasien')->get();
@@ -19,7 +24,7 @@ class Pasien extends Model
 
     public function detailData($id)
     {
-        return DB::table('pasien')->where('id', $id)->first();
+        return DB::table('pasien')->leftJoin('pemeriksaan', 'pemeriksaan.id_pasien', 'pasien.id')->where('pasien.id', $id)->first();
     }
 
     public function editData($id, $data)
