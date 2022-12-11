@@ -38,7 +38,7 @@
                                         <th>Nama Anak</th>
                                         <th>Umur</th>
                                         <th>Berat Badan</th>
-                                        <th>Alamat</th>
+                                        <th class="w-50">Alamat</th>
                                         <th>Tanggal Daftar</th>
                                         <th>Tanggal Daftar</th>
                                         <th>Action</th>

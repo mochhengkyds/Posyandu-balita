@@ -7,27 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
         .biodata {
-
             font-family: sans-serif;
             color: #030708;
-            width: 50px;
         }
 
         h2 {
             text-align: center;
-        }
-
-        table {
-            margin: 0 auto;
         }
     </style>
     <title>biodata pasien</title>
 </head>
 
 <body>
-    <table class="biodata">
-        <h2>Data Pasien</h2>
-        <hr width="500">
+    <h2>Data Pasien</h2>
+    <hr width="500">
+    <p><b>Nama Ibu : </b> {{ $pasienbio->nama_ibu }}</p>
+    <p><b>Nama Anak : </b> {{ $pasienbio->nama_anak }}</p>
+    <p><b>Umur : </b> {{ $pasienbio->umur }}</p>
+    <p><b>Berat Badan : </b> {{ $pasienbio->berat_badan }}</p>
+    <p><b>Alamat : </b> {{ $pasienbio->alamat }}</p>
+    <p><b>Tanggal Lahir : </b> {{ $pasienbio->tanggal_lahir }}</p>
+    <p><b>Tanggal Daftar : </b> {{ $pasienbio->tanggal_daftar }}</p>
+    <p><b>Keluhan : </b> {{ $pasienbio->keluhan }}</p>
+    {{-- <table border="0" class="biodata">
+
         <tr>
             <td>Nama Ibu</td>
             <td>: {{ $pasienbio->nama_ibu }}</td>
@@ -64,7 +67,7 @@
             <td>Keluhan</td>
             <td>: {{ $pasienbio->keluhan }}</td>
         </tr>
-    </table>
+    </table> --}}
 </body>
 
 </html>

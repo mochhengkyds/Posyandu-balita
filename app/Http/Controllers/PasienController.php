@@ -114,6 +114,7 @@ class PasienController extends Controller
         $pasienbio = DB::table('pasien')->where('pasien.id', $id)->join('pemeriksaan', 'pemeriksaan.id', 'pasien.id')->first();
         // $pasienbio = pasien::where('pasien.id', $id)->join('pemeriksaan', 'pemeriksaan.id', 'pasien.id')->get();
         // dd($pasienbio);
+        // return view('pasien.print_biodata', compact(('pasienbio')));
         $pdf = PDF::loadview('pasien.print_biodata', compact(('pasienbio')));
         $pdf->setPaper('a4', 'portait');
         return $pdf->download(Rand(1, 100) . 'Data Pasien.pdf');
